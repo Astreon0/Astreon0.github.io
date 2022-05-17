@@ -3,9 +3,18 @@
     <head>
         <meta charset="utf-8" />
         <title>War Timer</title>
-        <link rel="stylesheet" href="style.css">
-        <script type="text/javascript" src="WarTimer.js"></script>
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="./volume.css">
+        <script type="text/javascript" src="./WarTimer.js"></script>
+        <script type="text/javascript" src="./volume.js"></script>
+        <audio id="respawn10" src="./audio/respawnD10.mp3" preload="auto"></audio>
     </head>
+
+    <div class="VolumeContainer">
+        <i class="fa fa-5x fa-volume-up" aria-hidden="true" id="volbtn"></i>
+        <input id="prgvol" type="range" min="0" max="100" value="100" oninput="volume(this.value)"/>
+        <div id="volume_value">100</div>
+    </div>
 
     <body class="site-content">
         <div id="timerZone" style="height: 50em; display: grid; align-items: center;">

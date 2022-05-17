@@ -41,7 +41,6 @@ function diminuerSeconde() {
         document.getElementById("timerTotal").style.display = "block";
     }
 
-
     let minutes = parseInt(secondesTimerTab[index] / 60, 10);
     let secondes = parseInt(secondesTimerTab[index] % 60, 10);
     minutes = minutes < 10 ? "0" + minutes : minutes;
@@ -56,6 +55,9 @@ function diminuerSeconde() {
     timerTotalElement.innerText = `${minutesTotal}:${secondesTotal}`;
 
     timerElement.style.color = secondesTimerTab[index] == initialTimerTab[index] ? color0 : (secondesTimerTab[index] <= 10 ? (secondesTimerTab[index] <= 5 ? color5 : color10) : basicColor);
+    if (secondesTimerTab[index] == 10) {
+        document.getElementById('respawn10').play();
+    }
 
     secondeTotal = secondeTotal <= 0 ? 0 : secondeTotal - 1;
     secondesTimerTab[index] = secondesTimerTab[index] <= 0 ? 0 : secondesTimerTab[index] - 1;
