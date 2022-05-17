@@ -18,13 +18,15 @@
 
     <body class="site-content">
         <div id="timerZone" style="height: 50em; display: grid; align-items: center;">
-            <h1 id="preTimer" class="centerTexte">Appuyer sur le bouton pour lancer le timer 10 secondes avant</h1>
+            <h1 id="preTimer" class="centerTexte">Appuyer sur le bouton pour lancer le timer 30 secondes avant</h1>
             <div>
                 <h1 id="timerTotal" style="display: none;font-size: 7rem;" class="centerTexte"></h1>
-                <h1 id="timer" style="display: none;font-size: 15rem;" class="centerTexte">10</h1>
+                <h1 id="timer" style="display: none;font-size: 15rem;" class="centerTexte"></h1>
             </div>
         </div>
-        
-        <button type="button" id="startTimer" onclick="startTimer();">Lancer le timer</button>
+        <div style="display: flex;">
+            <input id="valueSeconde" type="text" value="30" style="display: inline;width: 50%;font-size: 40px;text-align: center;" placeholder="Décompte avant début de la war" onkeyup="changeValueStart();">
+            <button type="button" id="startTimer" style="display: inline;width: 50%;" onclick="startTimer();">Lancer le timer</button>
+        </div>
     </body>
 </html>

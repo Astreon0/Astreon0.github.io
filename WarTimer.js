@@ -1,6 +1,6 @@
 let secondeTotal = 1809;
 let secondesTimerTab = [];
-let initialTimerTab = [9,                                   
+let initialTimerTab = [29,                                   
     20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, //14 = 280 sec
     28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28,         //12 = 336 sec
     36, 36, 36, 36, 36, 36, 36, 36, 36,                     // 9 = 324 sec
@@ -20,13 +20,24 @@ function startTimer() {
         alreadyOn = true;
         document.getElementById("startTimer").style.display = "none";
         secondesTimerTab = initialTimerTab.slice();
+        secondesTimerTab[0] = parseInt(document.getElementById("valueSeconde").value) - 1;
         const preTimerElement = document.getElementById("preTimer");
+        const preTimerInputElement = document.getElementById("valueSeconde");
         const timerElement = document.getElementById("timer");
         const timerTotalElement = document.getElementById("timerTotal");
     
         preTimerElement.style.display = "none";
+        preTimerInputElement.style.display = "none";
         timerElement.style.display = "block";
-    
+
+        let valueSeconde = secondesTimerTab[0] + 1;
+        let minutes = parseInt(valueSeconde / 60, 10);
+        let secondes = parseInt(valueSeconde % 60, 10);
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        secondes = secondes < 10 ? "0" + secondes : secondes;
+
+        timerElement.innerText = `${minutes}:${secondes}`;
+
         setInterval(() => {
             diminuerSeconde();
         }, 1000);
@@ -66,4 +77,10 @@ function diminuerSeconde() {
         index++;
     }
     
+}
+
+function changeValueStart() {
+    console.log("test");
+    let valueSeconde = document.getElementById("valueSeconde").value;
+    document.getElementById("preTimer").innerHTML = "Appuyer sur le bouton pour lancer le timer " + valueSeconde + " secondes avant";
 }
