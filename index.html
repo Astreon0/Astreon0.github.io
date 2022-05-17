@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>War Timer</title>
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="WarTimer.js"></script>
+    </head>
+
+    <body class="site-content">
+        <div id="timerZone" style="height: 50em; display: grid; align-items: center;">
+            <h1 id="preTimer" class="centerTexte">Appuyer sur le bouton pour lancer le timer 10 secondes avant</h1>
+            <div>
+                <h1 id="timerTotal" style="display: none;font-size: 7rem;" class="centerTexte"></h1>
+                <h1 id="timer" style="display: none;font-size: 15rem;" class="centerTexte">10</h1>
+            </div>
+        </div>
+        
+        <button type="button" onclick="startTimer();">Lancer le timer</button>
+    </body>
+</html>
