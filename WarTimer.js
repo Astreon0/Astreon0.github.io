@@ -1,4 +1,4 @@
-let secondeTotal = 1801;
+let secondeTotal = 1800;
 let secondesTimerTab = [];
 let initialTimerTab = [29,                                   
     20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, //14 = 280 sec
