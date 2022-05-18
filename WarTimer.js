@@ -75,7 +75,7 @@ function diminuerSeconde() {
         case 25 :
             document.getElementById('respawn25').play();
             break;
-        case 20 :
+        case 20 && initialTimerTab[index] != 20 :
             document.getElementById('respawn20').play();
             break;
         case 15 :
