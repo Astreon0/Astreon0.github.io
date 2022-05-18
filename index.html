@@ -3,30 +3,41 @@
     <head>
         <meta charset="utf-8" />
         <title>War Timer</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <audio id="respawn10" src="./audio/respawnD10.mp3" preload="auto"></audio>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./style.css">
         <link rel="stylesheet" href="./volume.css">
         <script type="text/javascript" src="./WarTimer.js"></script>
         <script type="text/javascript" src="./volume.js"></script>
-        <audio id="respawn10" src="./audio/respawnD10.mp3" preload="auto"></audio>
     </head>
 
-    <div class="VolumeContainer">
-        <i class="fa fa-5x fa-volume-up" aria-hidden="true" id="volbtn"></i>
-        <input id="prgvol" type="range" min="0" max="100" value="100" oninput="volume(this.value)"/>
-        <div id="volume_value">100</div>
-    </div>
-
     <body class="site-content">
-        <div id="timerZone" style="height: 50em; display: grid; align-items: center;">
-            <h1 id="preTimer" class="centerTexte">Appuyer sur le bouton pour lancer le timer 30 secondes avant</h1>
-            <div>
-                <h1 id="timerTotal" style="display: none;font-size: 7rem;" class="centerTexte"></h1>
-                <h1 id="timer" style="display: none;font-size: 15rem;" class="centerTexte"></h1>
+        <div id="timerZone">
+            <div id="warTimer" class="numberTimer">
+                <h2>War Timer</h2>
+                <h1 id="timerTotal" class="centerTexte"></h1>
+            </div>
+            <img src="img/logo.svg" alt="ZOO MAGIQUE" class="logo">
+            <h2 id="preTimer" class="centerTexte">Appuyer sur le bouton pour lancer le timer <b style="color: white"><span id="secBeforeStart">30</span> secondes</b> avant le lancement de la war</h1>
+            <div id="respawnTimer" class="numberTimer">
+                <h2 id="respawnTimerText">War starting in</h2>
+                <h1 id="timer" class="centerTexte"></h1>
             </div>
         </div>
-        <div style="display: flex;">
-            <input id="valueSeconde" type="text" value="30" style="display: inline;width: 50%;font-size: 40px;text-align: center;" placeholder="Décompte avant début de la war" onkeyup="changeValueStart();">
-            <button type="button" id="startTimer" style="display: inline;width: 50%;" onclick="startTimer();">Lancer le timer</button>
+        <div class="config">
+            <input id="valueSeconde" type="text" value="30" placeholder="secondes" onkeyup="changeValueStart();">
+            <button type="button" id="startTimer" onclick="startTimer();">START</button>
+        </div>
+        <div class="VolumeContainer" id="volumeBlock">
+            <div>Volume</div>
+            <div>
+                <i class="fa fa-5x fa-volume-up" aria-hidden="true" id="volbtn"></i>
+                <input id="prgvol" type="range" min="0" max="100" value="100" oninput="volume(this.value)"/>
+            </div>
+            <div id="volume_value">100</div>
         </div>
     </body>
 </html>

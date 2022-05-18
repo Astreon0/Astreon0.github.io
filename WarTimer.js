@@ -13,7 +13,7 @@ let alreadyOn = false;
 let color10 = "red";
 let color5 = "orange";
 let color0 = "green";
-let basicColor = "black";
+let basicColor = "white";
 
 function startTimer() {
     if (!alreadyOn) {
@@ -25,10 +25,11 @@ function startTimer() {
         const preTimerElement = document.getElementById("preTimer");
         const preTimerInputElement = document.getElementById("valueSeconde");
         const timerElement = document.getElementById("timer");
+        const timerBlockElement = document.getElementById("respawnTimer");
     
         preTimerElement.style.display = "none";
         preTimerInputElement.style.display = "none";
-        timerElement.style.display = "block";
+        timerBlockElement.style.display = "block";
 
         let valueSeconde = secondesTimerTab[0] + 1;
         let minutes = parseInt(valueSeconde / 60, 10);
@@ -50,6 +51,7 @@ function diminuerSeconde() {
 
     if (secondeTotal == 1800) {
         document.getElementById("timerTotal").style.display = "block";
+        document.getElementById("respawnTimerText").innerHTML = "Next respawn in";
     }
 
     let minutes = parseInt(secondesTimerTab[index] / 60, 10);
@@ -82,5 +84,5 @@ function diminuerSeconde() {
 function changeValueStart() {
     console.log("test");
     let valueSeconde = document.getElementById("valueSeconde").value;
-    document.getElementById("preTimer").innerHTML = "Appuyer sur le bouton pour lancer le timer " + valueSeconde + " secondes avant";
+    document.getElementById("preTimer").innerHTML = "Appuyer sur le bouton pour lancer le timer <b style='color: white'><span id='secBeforeStart'>" + valueSeconde + "</span> secondes</b> secondes avant";
 }
