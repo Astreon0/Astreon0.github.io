@@ -1,4 +1,4 @@
-let secondeTotal = 1809;
+let secondeTotal = 1800;
 let secondesTimerTab = [];
 let initialTimerTab = [29,                                   
     20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, //14 = 280 sec
@@ -21,10 +21,10 @@ function startTimer() {
         document.getElementById("startTimer").style.display = "none";
         secondesTimerTab = initialTimerTab.slice();
         secondesTimerTab[0] = parseInt(document.getElementById("valueSeconde").value) - 1;
+        secondeTotal += parseInt(document.getElementById("valueSeconde").value) - 1;
         const preTimerElement = document.getElementById("preTimer");
         const preTimerInputElement = document.getElementById("valueSeconde");
         const timerElement = document.getElementById("timer");
-        const timerTotalElement = document.getElementById("timerTotal");
     
         preTimerElement.style.display = "none";
         preTimerInputElement.style.display = "none";
