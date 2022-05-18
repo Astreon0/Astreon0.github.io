@@ -1,4 +1,4 @@
-let secondeTotal = 1800;
+let secondeTotal = 1801;
 let secondesTimerTab = [];
 let initialTimerTab = [29,                                   
     20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, //14 = 280 sec
@@ -50,7 +50,7 @@ function diminuerSeconde() {
     const timerTotalElement = document.getElementById("timerTotal");
 
     if (secondeTotal == 1800) {
-        document.getElementById("timerTotal").style.display = "block";
+        document.getElementById("warTimer").style.display = "block";
         document.getElementById("respawnTimerText").innerHTML = "Next respawn in";
     }
 
@@ -68,8 +68,25 @@ function diminuerSeconde() {
     timerTotalElement.innerText = `${minutesTotal}:${secondesTotal}`;
 
     timerElement.style.color = secondesTimerTab[index] == initialTimerTab[index] ? color0 : (secondesTimerTab[index] <= 10 ? (secondesTimerTab[index] <= 5 ? color5 : color10) : basicColor);
-    if (secondesTimerTab[index] == 10) {
-        document.getElementById('respawn10').play();
+    switch(secondesTimerTab[index]) {
+        case 30 :
+            document.getElementById('respawn30').play();
+            break;
+        case 25 :
+            document.getElementById('respawn25').play();
+            break;
+        case 20 :
+            document.getElementById('respawn20').play();
+            break;
+        case 15 :
+            document.getElementById('respawn15').play();
+            break;
+        case 10 :
+            document.getElementById('respawn10').play();
+            break;
+        default:
+            break;
+
     }
 
     secondeTotal = secondeTotal <= 0 ? 0 : secondeTotal - 1;
