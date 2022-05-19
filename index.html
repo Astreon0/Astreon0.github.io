@@ -20,19 +20,23 @@
 
     <body class="site-content">
         <div id="timerZone">
+            <!-- WAR GLOBAL TIMER -->
             <div id="warTimer" class="numberTimer">
                 <h2>War Timer</h2>
                 <h1 id="timerTotal" class="centerTexte"></h1>
             </div>
+            <!-- LOGO -->
             <img src="img/logo.svg" alt="ZOO MAGIQUE" class="logo">
-            <h2 id="preTimer" class="centerTexte">Appuyer sur le bouton pour lancer le timer <b style="color: white"><span id="secBeforeStart">30</span> secondes</b> avant le lancement de la war</h1>
+            <h2 id="preTimer" class="centerTexte">Press start button <b style="color: white"><span id="secBeforeStart">30</span> seconds</b> before war launch</h1>
+            <!-- START / RESPAWN TIMER -->
             <div id="respawnTimer" class="numberTimer">
                 <h2 id="respawnTimerText">War starting in</h2>
                 <h1 id="timer" class="centerTexte"></h1>
+                <button type="button" id="stopButton">STOP</button>
             </div>
         </div>
         <div class="config">
-            <input id="valueSeconde" type="text" value="30" placeholder="secondes" onkeyup="changeValueStart();">
+            <input id="valueSeconde" type="text" value="30" onkeyup="changeValueStart();">
             <button type="button" id="startTimer" onclick="startTimer();">START</button>
         </div>
         <div class="VolumeContainer" id="volumeBlock">

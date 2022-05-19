@@ -67,27 +67,30 @@ function diminuerSeconde() {
     timerElement.innerText = `${minutes}:${secondes}`;
     timerTotalElement.innerText = `${minutesTotal}:${secondesTotal}`;
 
-    timerElement.style.color = secondesTimerTab[index] == initialTimerTab[index] ? color0 : (secondesTimerTab[index] <= 10 ? (secondesTimerTab[index] <= 5 ? color5 : color10) : basicColor);
-    switch(secondesTimerTab[index]) {
-        case 30 :
-            document.getElementById('respawn30').play();
-            break;
-        case 25 :
-            document.getElementById('respawn25').play();
-            break;
-        case 20 && initialTimerTab[index] != 20 :
-            document.getElementById('respawn20').play();
-            break;
-        case 15 :
-            document.getElementById('respawn15').play();
-            break;
-        case 10 :
-            document.getElementById('respawn10').play();
-            break;
-        default:
-            break;
-
+    if (secondeTotal < 1800) {
+        timerElement.style.color = secondesTimerTab[index] == initialTimerTab[index] ? color0 : (secondesTimerTab[index] <= 10 ? (secondesTimerTab[index] <= 5 ? color5 : color10) : basicColor);
+        switch(secondesTimerTab[index]) {
+            case 30 :
+                document.getElementById('respawn30').play();
+                break;
+            case 25 :
+                document.getElementById('respawn25').play();
+                break;
+            case 20 && initialTimerTab[index] != 20 :
+                document.getElementById('respawn20').play();
+                break;
+            case 15 :
+                document.getElementById('respawn15').play();
+                break;
+            case 10 :
+                document.getElementById('respawn10').play();
+                break;
+            default:
+                break;
+    
+        }
     }
+    
 
     secondeTotal = secondeTotal <= 0 ? 0 : secondeTotal - 1;
     secondesTimerTab[index] = secondesTimerTab[index] <= 0 ? 0 : secondesTimerTab[index] - 1;
@@ -101,5 +104,5 @@ function diminuerSeconde() {
 function changeValueStart() {
     console.log("test");
     let valueSeconde = document.getElementById("valueSeconde").value;
-    document.getElementById("preTimer").innerHTML = "Appuyer sur le bouton pour lancer le timer <b style='color: white'><span id='secBeforeStart'>" + valueSeconde + "</span> secondes</b> secondes avant";
+    document.getElementById("secBeforeStart").innerHTML = valueSeconde;
 }
