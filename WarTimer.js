@@ -14,6 +14,7 @@ let color10 = "red";
 let color5 = "orange";
 let color0 = "green";
 let basicColor = "white";
+let interval;
 
 function startTimer() {
     if (!alreadyOn) {
@@ -39,10 +40,26 @@ function startTimer() {
 
         timerElement.innerText = `${minutes}:${secondes}`;
 
-        setInterval(() => {
+        interval = setInterval(() => {
             diminuerSeconde();
         }, 1000);
     }
+}
+
+function stopTImer() {
+    clearInterval(interval);
+    alreadyOn = false;
+    secondeTotal = 1800;
+    index = 0;
+    document.getElementById("startTimer").style.display = "block";
+    const preTimerElement = document.getElementById("preTimer");
+    const preTimerInputElement = document.getElementById("valueSeconde");
+    const timerBlockElement = document.getElementById("respawnTimer");
+    preTimerElement.style.display = "block";
+    preTimerInputElement.style.display = "block";
+    timerBlockElement.style.display = "none";
+    document.getElementById("warTimer").style.display = "none";
+    document.getElementById("respawnTimerText").innerHTML = "";
 }
 
 function diminuerSeconde() {
